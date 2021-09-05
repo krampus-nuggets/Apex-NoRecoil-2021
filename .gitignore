@@ -5,5 +5,9 @@
 Include
 Lib
 Scripts
+output
 __pycache__
+export.json
+*.ico
 *.cfg
+py*.dll
