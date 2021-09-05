@@ -1,3 +1,4 @@
+from modules.recoil_patterns import ahk_recoil_patterns, gen_recoil_config
 from modules.banners import print_banner
 import yaml
 import os
@@ -33,7 +34,8 @@ def config_generator():
     data = dict(
         scan_coord_one = weapon_one_scan_coordinates,
         scan_coord_two = weapon_two_scan_coordinates,
-        modifier_value = recoil_pattern_modifer
+        modifier_value = recoil_pattern_modifer,
+        recoil_patterns = gen_recoil_config(ahk_recoil_patterns)
     )
 
     with open(yaml_config, "w") as outfile:
