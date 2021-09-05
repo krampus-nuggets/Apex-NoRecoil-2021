@@ -52,7 +52,7 @@ def left_click_state():
 active_state = False
 last_toggle_state = False
 active_weapon_slot = 1
-active_weapon = "None"
+active_weapon = "None".upper()
 supported_weapon = False
 recognized_weapon = False
 
