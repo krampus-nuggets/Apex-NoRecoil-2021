@@ -1,5 +1,4 @@
 from modules.helpers import config_generator, read_config
-from modules.recoil_patterns import recoil_patterns
 from modules.banners import print_banner
 import numpy as np
 import pytesseract
