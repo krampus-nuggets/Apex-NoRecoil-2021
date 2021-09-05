@@ -94,9 +94,9 @@ try:
         # ACTION: Apply Recoil-Control w/ Left-Click
         if left_click_state() and active_state:
             try:
-                for i in range(len(recoil_patterns[active_weapon])):
-                    win32api.mouse_event(0x0001, int(recoil_patterns[active_weapon][i][0]/data["modifier_value"]), int(recoil_patterns[active_weapon][i][1]/data["modifier_value"]))
-                    time.sleep(recoil_patterns[active_weapon][i][2])
+                for i in range(len(data["recoil_patterns"][active_weapon])):
+                    win32api.mouse_event(0x0001, int(data["recoil_patterns"][active_weapon][i][0]/data["modifier_value"]), int(data["recoil_patterns"][active_weapon][i][1]/data["modifier_value"]))
+                    time.sleep(data["recoil_patterns"][active_weapon][i][2])
                 supported_weapon = True
             except KeyError:
                 supported_weapon = False
