@@ -24,3 +24,23 @@ ahk_recoil_patterns = {
     "P2020" : [[2.4, 11, 130]],
     "RAMPAGE" : [[0,0,180], [-2,8,180], [6.6,7.8,180], [3.2,9.2,180], [-4.8,6.0,180], [0.7,9.4,180], [-5.3,7.8,180], [-5.2,4.3,180], [-5.4,6.5,180], [-5.2,4.5,180], [-1.3,6.5,180], [6.7,4,180], [7,5,180], [3,6.6,180], [5,2.4,180], [5.5,4,180], [4.5,5,180], [-1,5.5,180], [-2,4.5,180], [2.3,4,180], [-3.5,4,180], [2.7,4,180], [3.5,5,180], [-2.2,6,180], [3.7,3.5,180], [4,4.4,180], [-3.5,6.1,180], [5,6,180], [4.8,5,180], [4.7,5.5,180], [-1,6.5,180], [-3.5,6,180], [3,4,180], [-3,5,180], [6,5.3,180], [3.5,5,180], [-1.5,5.7,180], [2.5,4,180], [4.5,3,180], [-3,4.5,180]]
 }
+
+def gen_recoil_config(input_patterns_dict):
+    python_recoil_patterns = {}
+
+    for key in input_patterns_dict:
+        pattern_list = []
+
+        for pattern in range(len(input_patterns_dict[key])):
+            sleep_value = input_patterns_dict[key][pattern][2]
+
+            if sleep_value >= 100:
+                sleep_value = sleep_value/10000
+            else:
+                sleep_value = sleep_value/1000
+
+            pattern_list.append([input_patterns_dict[key][pattern][0], input_patterns_dict[key][pattern][1], sleep_value])
+        
+        python_recoil_patterns[key] = pattern_list
+    
+    return python_recoil_patterns
